@@ -3,685 +3,996 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cash Dog ($CASHDOG) — Barks at Every Dip</title>
-  <meta name="description" content="Cash Dog barks at every dip, sniffs out gains, and leads the meme pack straight to the moon. $CASHDOG on Solana." />
+  <title>FEBUWHALE // $FEBUWHALE — ASCII TERMINAL</title>
+  <meta name="description" content="Febuwhale: Febu + Whitewhale energy combined. Going live on PumpFun, DEX at 16K. $FEBUWHALE on Solana." />
   <link rel="icon" href="logo.png" type="image/png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            mono: ['"VT323"', '"Courier New"', 'ui-monospace', 'Menlo', 'Consolas', 'monospace'],
-            display: ['"Press Start 2P"', 'monospace'],
-          },
-          colors: {
-            ink: '#0a0806',
-            board: '#12100c',
-            rail: '#3d2e14',
-            gold: '#f0c040',
-            coin: '#ffc933',
-            warm: '#ffe8a0',
-            ash: '#8a7a55',
-            dust: '#5c4e32',
-            cream: '#f5ecd4',
-          },
-          boxShadow: {
-            gold: '0 0 24px rgba(255,201,51,0.12), 0 0 60px rgba(255,201,51,0.05)',
-            'gold-hot': '0 0 16px rgba(255,201,51,0.45), 0 0 40px rgba(240,180,40,0.18)',
-          },
-          animation: {
-            blink: 'blink 1.1s step-end infinite',
-            bob: 'bob 4.2s ease-in-out infinite',
-            sniff: 'sniff 2.8s ease-in-out infinite',
-            pulseSoft: 'pulseSoft 2s ease-in-out infinite',
-            twinkle: 'twinkle 3s ease-in-out infinite',
-          },
-          keyframes: {
-            blink: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0' } },
-            bob: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
-            sniff: {
-              '0%, 100%': { transform: 'rotate(0deg)' },
-              '25%': { transform: 'rotate(-2deg)' },
-              '75%': { transform: 'rotate(2deg)' },
-            },
-            pulseSoft: { '0%, 100%': { opacity: '0.45' }, '50%': { opacity: '1' } },
-            twinkle: { '0%, 100%': { opacity: '0.35' }, '50%': { opacity: '1' } },
-          },
-        },
-      },
-    };
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
-    body {
-      background-color: #0a0806;
-      background-image:
-        radial-gradient(ellipse 90% 55% at 50% -15%, rgba(255,201,51,0.09), transparent 55%),
-        radial-gradient(ellipse 50% 40% at 100% 100%, rgba(240,160,30,0.04), transparent),
-        linear-gradient(rgba(255,201,51,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,201,51,0.025) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px;
+    :root {
+      --bg: #0b0f0c;
+      --panel: #0e1510;
+      --panel-2: #121a14;
+      --border: #1f3d28;
+      --green: #39ff6a;
+      --green-dim: #1fa84a;
+      --green-soft: #7dff9e;
+      --green-ghost: rgba(57, 255, 106, 0.12);
+      --amber: #ffcc44;
+      --amber-dim: #b8860b;
+      --muted: #5a7a62;
+      --text: #c8e6cf;
+      --white: #e8ffe9;
+      --red: #ff5a5a;
+      --font: "IBM Plex Mono", "Share Tech Mono", ui-monospace, Consolas, monospace;
     }
 
-    /* Scanlines + vignette — warmer amber CRT */
-    .crt::before {
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-size: 15px;
+      line-height: 1.55;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(57,255,106,0.07), transparent 55%),
+        linear-gradient(rgba(57,255,106,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57,255,106,0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 24px 24px, 24px 24px;
+    }
+
+    /* phosphor scan */
+    body::before {
       content: '';
       pointer-events: none;
       position: fixed;
       inset: 0;
-      z-index: 50;
+      z-index: 9998;
       background: repeating-linear-gradient(
         0deg,
         transparent,
-        transparent 3px,
-        rgba(0,0,0,0.15) 3px,
-        rgba(0,0,0,0.15) 4px
+        transparent 2px,
+        rgba(0,0,0,0.12) 2px,
+        rgba(0,0,0,0.12) 3px
       );
-      opacity: 0.4;
+      opacity: 0.45;
     }
-    .crt::after {
+    body::after {
       content: '';
       pointer-events: none;
       position: fixed;
       inset: 0;
-      z-index: 51;
-      background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.6) 100%);
-    }
-    .noise {
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      z-index: 40;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 9999;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.55) 100%);
     }
 
-    /* Double-line ASCII frame cards */
-    .frame {
+    a { color: var(--green); text-decoration: none; }
+    a:hover { color: var(--green-soft); text-shadow: 0 0 8px rgba(57,255,106,0.5); }
+    ::selection { background: var(--green); color: var(--bg); }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
       position: relative;
-      border: 3px double #c9a227;
-      background: rgba(18, 16, 12, 0.92);
-      box-shadow:
-        inset 0 0 0 1px rgba(255,201,51,0.06),
-        0 0 28px rgba(255,201,51,0.06);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      z-index: 1;
     }
-    .frame:hover {
-      border-color: #ffc933;
-      box-shadow: 0 0 32px rgba(255,201,51,0.14);
-    }
-    .frame-tag {
+
+    /* ===== ASCII BOX ===== */
+    .box {
+      border: 1px solid var(--border);
+      background: var(--panel);
       position: relative;
+      margin-bottom: 1.25rem;
     }
-    .frame-tag::before {
-      content: attr(data-tag);
+    .box-inner { padding: 1rem 1.1rem; }
+    .box-title {
       position: absolute;
-      top: -0.7rem;
-      left: 1rem;
+      top: -0.65rem;
+      left: 0.85rem;
+      background: var(--bg);
       padding: 0 0.5rem;
-      background: #0a0806;
-      color: #ffc933;
+      color: var(--green);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .box-title.amber { color: var(--amber); }
+
+    pre.ascii {
+      font-family: var(--font);
+      white-space: pre;
+      overflow-x: auto;
+      color: var(--green);
+      line-height: 1.15;
+      font-size: 0.72rem;
+      text-shadow: 0 0 6px rgba(57,255,106,0.25);
+    }
+    @media (min-width: 640px) {
+      pre.ascii { font-size: 0.85rem; }
+    }
+
+    /* top bar */
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      padding: 0.65rem 0.9rem;
+      margin-bottom: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .brand img {
+      width: 40px;
+      height: 40px;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 0 6px rgba(57,255,106,0.4));
+    }
+    .brand-name {
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      font-size: 0.95rem;
+      text-shadow: 0 0 10px rgba(57,255,106,0.35);
+    }
+    .brand-sub {
+      color: var(--muted);
       font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      white-space: nowrap;
+      letter-spacing: 0.12em;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.85rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+    .nav a {
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .nav a:hover { color: var(--green); }
+    .nav .sep { color: var(--border); user-select: none; }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .socials img {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.15s, filter 0.15s;
+      filter: brightness(0) invert(0.7) sepia(1) saturate(5) hue-rotate(75deg);
+    }
+    .socials a:hover img {
+      transform: scale(1.1);
+      filter: brightness(0) invert(0.85) sepia(1) saturate(6) hue-rotate(75deg) drop-shadow(0 0 6px rgba(57,255,106,0.6));
+    }
+    .socials .tg {
+      filter: none !important;
+    }
+    .socials a:hover .tg {
+      filter: drop-shadow(0 0 6px rgba(57,255,106,0.5)) !important;
     }
 
-    .btn-dog {
-      transition: all 0.18s ease;
-      letter-spacing: 0.14em;
+    /* marquee */
+    .ticker {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #0a120c;
+      margin-bottom: 1.25rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--green-dim);
     }
-    .btn-dog:hover { transform: translateY(-2px); }
-    .btn-dog:active { transform: translateY(0); }
-    .btn-fill {
-      background: #ffc933;
-      color: #0a0806;
-      border: 2px solid #ffc933;
-      box-shadow: 0 0 18px rgba(255,201,51,0.25);
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 40s linear infinite;
+      padding: 0.4rem 0;
     }
-    .btn-fill:hover {
-      background: #ffe070;
-      border-color: #ffe070;
-      box-shadow: 0 0 26px rgba(255,201,51,0.4);
-    }
-    .btn-outline {
-      background: transparent;
-      color: #ffc933;
-      border: 2px solid #c9a227;
-    }
-    .btn-outline:hover {
-      border-color: #ffc933;
-      background: rgba(255,201,51,0.08);
-    }
-
-    .marquee {
-      animation: marquee 36s linear infinite;
-      white-space: nowrap;
-    }
-    @keyframes marquee {
+    .ticker-track span { padding-right: 3rem; white-space: nowrap; }
+    @keyframes scroll {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
 
-    .copy-toast {
-      animation: toastIn 0.25s ease, toastOut 0.25s ease 1.5s forwards;
+    /* prompt line */
+    .prompt {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
     }
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    .prompt .path { color: var(--green); }
+    .prompt .cmd { color: var(--amber); }
+    .cursor {
+      display: inline-block;
+      width: 0.55em;
+      height: 1em;
+      background: var(--green);
+      vertical-align: text-bottom;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+      box-shadow: 0 0 8px var(--green);
     }
-    @keyframes toastOut {
-      to { opacity: 0; transform: translateY(-6px); }
-    }
-
-    ::selection { background: #ffc933; color: #0a0806; }
-
-    .dex-shell {
-      background: #12100c;
-      border: 3px double #c9a227;
-    }
-
-    .social-icon {
-      filter: brightness(0) invert(0.85) sepia(1) saturate(4) hue-rotate(5deg);
-      transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
-      opacity: 0.9;
-    }
-    .social-icon:hover {
-      transform: scale(1.08);
-      opacity: 1;
-      filter: brightness(0) invert(0.9) sepia(1) saturate(5) hue-rotate(5deg) drop-shadow(0 0 8px rgba(255,201,51,0.55));
-    }
-    .tg-icon {
-      filter: none;
-      opacity: 1;
-    }
-    .tg-icon:hover {
-      filter: drop-shadow(0 0 10px rgba(255,201,51,0.5));
+    @keyframes blink {
+      50% { opacity: 0; }
     }
 
-    .ascii-art {
-      line-height: 1.1;
-      letter-spacing: 0.02em;
-      color: #ffc933;
-      text-shadow: 0 0 10px rgba(255,201,51,0.35);
+    /* hero */
+    .hero-banner {
+      text-align: center;
+      padding: 0.75rem;
+      border: 1px dashed var(--border);
+      background: #080c09;
+      margin-bottom: 1rem;
     }
-    .text-glow {
-      text-shadow: 0 0 14px rgba(255,201,51,0.4);
+    .hero-banner img {
+      width: 100%;
+      max-width: 720px;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 16px rgba(57,255,106,0.2));
+      animation: float 5s ease-in-out infinite;
     }
-    .banner-glow {
-      filter: drop-shadow(0 0 18px rgba(255,201,51,0.22));
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
-    /* Dashed corner ornaments */
-    .corners {
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 0.75rem;
+      padding-top: 0.55rem;
+    }
+    .meta-row .live { color: var(--green); }
+    .meta-row .live::before {
+      content: '● ';
+      animation: blink 1.2s step-end infinite;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--green);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      letter-spacing: 0.22em;
+      margin: 1rem 0 0.35rem;
+      text-shadow: 0 0 18px rgba(57,255,106,0.4);
+      font-weight: 700;
+    }
+    .tagline {
+      text-align: center;
+      color: var(--text);
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      max-width: 34rem;
+      margin: 0.75rem auto 0;
+      line-height: 1.6;
+    }
+    .symbol {
+      text-align: center;
+      color: var(--muted);
+      letter-spacing: 0.28em;
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+    }
+    .symbol b { color: var(--amber); font-weight: 600; }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.1rem 0 0;
+    }
+    .pill {
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--green-soft);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      padding: 0.35rem 0.7rem;
+    }
+    .pill.amber {
+      color: var(--amber);
+      border-color: rgba(255,204,68,0.35);
+    }
+
+    /* CA */
+    .ca-block {
+      margin-top: 1.25rem;
+      border: 1px solid var(--border);
+      background: #080c09;
+    }
+    .ca-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .ca-head span { color: var(--amber); }
+    .ca-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0.75rem;
+    }
+    @media (min-width: 560px) {
+      .ca-body { flex-direction: row; align-items: center; }
+    }
+    #ca-text {
+      flex: 1;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: var(--green);
+      background: transparent;
+      border: 1px dashed var(--border);
+      padding: 0.65rem 0.75rem;
+      overflow-x: auto;
+      word-break: break-all;
+    }
+    .btn {
+      font-family: var(--font);
+      cursor: pointer;
+      border: 1px solid var(--green-dim);
+      background: var(--green-ghost);
+      color: var(--green);
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.7rem 1.1rem;
+      transition: background 0.15s, color 0.15s, box-shadow 0.15s, border-color 0.15s;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .btn:hover {
+      background: var(--green);
+      color: var(--bg);
+      box-shadow: 0 0 18px rgba(57,255,106,0.35);
+      border-color: var(--green);
+    }
+    .btn-solid {
+      background: var(--green);
+      color: var(--bg);
+      border-color: var(--green);
+      box-shadow: 0 0 14px rgba(57,255,106,0.25);
+    }
+    .btn-solid:hover {
+      background: var(--green-soft);
+      border-color: var(--green-soft);
+    }
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--muted);
+    }
+    .btn-ghost:hover {
+      color: var(--green);
+      border-color: var(--green-dim);
+      background: var(--green-ghost);
+      box-shadow: none;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: 1.1rem;
+    }
+    .cta-row .btn { min-width: 160px; }
+
+    /* section headers as ascii */
+    .sec {
+      margin: 2.25rem 0 1rem;
+    }
+    .sec-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.25rem;
+    }
+    .sec h2 {
+      color: var(--green);
+      font-size: 1.15rem;
+      letter-spacing: 0.16em;
+      text-shadow: 0 0 10px rgba(57,255,106,0.3);
+    }
+    .sec p.lead {
+      color: var(--muted);
+      margin-top: 0.45rem;
+      font-size: 0.92rem;
+      max-width: 36rem;
+    }
+
+    /* grid cards as ascii panels */
+    .grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+      .grid.cols-4 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 900px) {
+      .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      padding: 0.9rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .card:hover {
+      border-color: var(--green-dim);
+      box-shadow: 0 0 20px rgba(57,255,106,0.08);
+    }
+    .card pre {
+      color: var(--green-dim);
+      font-size: 0.7rem;
+      line-height: 1.2;
+      margin-bottom: 0.65rem;
+      overflow-x: auto;
+    }
+    .card h3 {
+      color: var(--green);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.45rem;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .step-num {
+      color: var(--green-ghost);
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+      float: right;
+      margin-left: 0.5rem;
+      color: rgba(57,255,106,0.15);
+    }
+
+    /* chart */
+    .chart-shell {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      overflow: hidden;
+    }
+    .chart-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .chart-bar .ok { color: var(--green); }
+    .chart-frame {
       position: relative;
+      width: 100%;
+      padding-top: 62.5%;
+      min-height: 380px;
     }
-    .corners::before,
-    .corners::after {
-      content: '';
+    .chart-frame iframe {
       position: absolute;
-      width: 14px;
-      height: 14px;
-      border-color: #ffc933;
-      opacity: 0.55;
-    }
-    .corners::before {
-      top: 6px;
-      left: 6px;
-      border-top: 2px dashed;
-      border-left: 2px dashed;
-    }
-    .corners::after {
-      bottom: 6px;
-      right: 6px;
-      border-bottom: 2px dashed;
-      border-right: 2px dashed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
-    .paw {
-      color: #c9a227;
-      opacity: 0.5;
+    /* social cards */
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      padding: 1rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      color: inherit;
+    }
+    .link-card:hover {
+      border-color: var(--green-dim);
+      box-shadow: 0 0 18px rgba(57,255,106,0.1);
+      color: inherit;
+      text-shadow: none;
+    }
+    .link-card img {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+    .link-card .x-ico {
+      width: 40px;
+      height: 40px;
+      filter: brightness(0) invert(0.7) sepia(1) saturate(5) hue-rotate(75deg);
+    }
+    .link-card .lbl {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .link-card .val {
+      color: var(--green);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-top: 0.15rem;
+    }
+    .link-card .hint {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    footer .foot-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    footer .foot-brand img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 4px rgba(57,255,106,0.35));
+    }
+    footer .foot-name { color: var(--green); font-weight: 600; }
+    footer .foot-links {
+      display: flex;
+      gap: 0.9rem;
+      align-items: center;
+    }
+    footer .foot-links a { color: var(--muted); }
+    footer .foot-links a:hover { color: var(--green); }
+    footer .foot-links img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0) invert(0.55) sepia(1) saturate(4) hue-rotate(75deg);
+      vertical-align: middle;
+    }
+    footer .foot-links .tg { filter: none; width: 24px; height: 24px; }
+
+    /* toast */
+    #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10000;
+      display: none;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: var(--bg);
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      padding: 0.55rem 1rem;
+      box-shadow: 0 0 20px rgba(57,255,106,0.4);
+    }
+    #toast.show { display: block; animation: toastIn 0.2s ease; }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* terminal frame outer */
+    .term-frame {
+      border: 2px solid var(--border);
+      box-shadow:
+        0 0 0 1px #0a0f0b,
+        0 0 40px rgba(57,255,106,0.06),
+        inset 0 0 60px rgba(0,0,0,0.35);
+      background: var(--bg);
+    }
+    .term-chrome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0.75rem;
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    .term-chrome .dots {
+      display: flex;
+      gap: 0.35rem;
+    }
+    .term-chrome .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+    .term-chrome .dot.on { background: var(--green); box-shadow: 0 0 6px var(--green); }
+    .term-body { padding: 1rem; }
+
+    .hr-ascii {
+      color: var(--border);
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 0.75rem;
+      margin: 0.5rem 0;
+      letter-spacing: 0;
+      user-select: none;
     }
   </style>
 </head>
-<body class="crt font-mono text-cream antialiased overflow-x-hidden text-lg">
-  <div class="noise"></div>
-
-  <!-- NAV -->
-  <header class="sticky top-0 z-30 border-b border-rail bg-ink/95 backdrop-blur-md">
-    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-      <a href="#top" class="group flex items-center gap-3">
-        <img src="logo.png" alt="Cash Dog logo" class="h-10 w-10 sm:h-12 sm:w-12 transition group-hover:scale-105 banner-glow" />
-        <div class="leading-tight">
-          <div class="text-base font-bold tracking-widest text-coin text-glow sm:text-lg">CASH DOG</div>
-          <div class="text-xs tracking-[0.22em] text-ash sm:text-sm">$CASHDOG // WOOF TO THE MOON</div>
+<body>
+  <div class="wrap">
+    <!-- sticky mini nav -->
+    <div class="topbar">
+      <a href="#top" class="brand">
+        <img src="logo.png" alt="Febuwhale" />
+        <div>
+          <div class="brand-name">FEBUWHALE</div>
+          <div class="brand-sub">$FEBUWHALE // SOL</div>
         </div>
       </a>
-
-      <nav class="hidden items-center gap-6 text-sm tracking-widest text-ash md:flex">
-        <a href="#about" class="hover:text-coin transition">ABOUT</a>
-        <a href="#howto" class="hover:text-coin transition">HOW TO BUY</a>
-        <a href="#chart" class="hover:text-coin transition">CHART</a>
-        <a href="#links" class="hover:text-coin transition">PACK</a>
+      <nav class="nav">
+        <a href="#about">ABOUT</a>
+        <span class="sep">|</span>
+        <a href="#buy">BUY</a>
+        <span class="sep">|</span>
+        <a href="#chart">CHART</a>
+        <span class="sep">|</span>
+        <a href="#pod">POD</a>
       </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="https://t.me/CashDogsolana" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-          <img src="tg.png" alt="Telegram" class="social-icon tg-icon h-8 w-8 sm:h-9 sm:w-9" />
+      <div class="socials">
+        <a href="https://t.me/febuwhale" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <img src="tg.png" alt="TG" class="tg" />
         </a>
-        <a href="https://x.com/CashDogsolanaX" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
-          <img src="x.png" alt="X" class="social-icon h-7 w-7 sm:h-8 sm:w-8" />
+        <a href="https://x.com/febuwhale" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="x.png" alt="X" />
         </a>
-        <a
-          href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-dog btn-fill hidden rounded-none px-3 py-1.5 text-sm font-bold sm:inline-block"
-        >
-          BUY
-        </a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="btn btn-solid" style="padding:0.4rem 0.7rem;font-size:0.7rem;">BUY</a>
       </div>
     </div>
-  </header>
 
-  <!-- MARQUEE -->
-  <div class="overflow-hidden border-b border-rail bg-board py-2 text-sm tracking-[0.16em] text-ash">
-    <div class="marquee flex w-max gap-12">
-      <span class="text-coin/85">🐾 BARK AT EVERY DIP 🐾 SNIFF OUT GAINS 🐾 LEAD THE MEME PACK 🐾 STRAIGHT TO THE MOON 🐾 $CASHDOG // CASH DOG 🐾 BARK AT EVERY DIP 🐾 SNIFF OUT GAINS 🐾 LEAD THE MEME PACK 🐾 STRAIGHT TO THE MOON 🐾 $CASHDOG // CASH DOG 🐾</span>
-      <span class="text-coin/85">🐾 BARK AT EVERY DIP 🐾 SNIFF OUT GAINS 🐾 LEAD THE MEME PACK 🐾 STRAIGHT TO THE MOON 🐾 $CASHDOG // CASH DOG 🐾 BARK AT EVERY DIP 🐾 SNIFF OUT GAINS 🐾 LEAD THE MEME PACK 🐾 STRAIGHT TO THE MOON 🐾 $CASHDOG // CASH DOG 🐾</span>
-    </div>
-  </div>
-
-  <main id="top">
-    <!-- HERO -->
-    <section class="relative mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 sm:pt-14">
-      <div class="pointer-events-none absolute -top-8 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-coin/5 blur-3xl"></div>
-
-      <div class="mb-5 flex items-center justify-center gap-2 text-xs tracking-[0.28em] text-ash sm:text-sm">
-        <span class="text-coin">+--</span>
-        <span class="animate-pulseSoft text-coin">PACK STATUS: ON THE HUNT</span>
-        <span class="text-coin">--+</span>
-        <span class="animate-blink text-coin">_</span>
+    <!-- main terminal -->
+    <div class="term-frame" id="top">
+      <div class="term-chrome">
+        <div class="dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot on"></span>
+        </div>
+        <span>FEBUWHALE.SYS — tty1</span>
+        <span class="ok" style="color:var(--green)">ONLINE</span>
       </div>
 
-      <!-- Banner in dashed ASCII shell -->
-      <div class="frame corners relative mx-auto max-w-4xl overflow-hidden p-3 sm:p-5">
-        <pre class="mb-2 hidden overflow-x-auto text-xs leading-none text-dust sm:block sm:text-sm">+======================================================================+
-|  ~/cashdog/sniff.sys  ·  STATUS: WOOFING  ·  CHAIN: SOLANA           |
-+======================================================================+</pre>
-        <div class="mb-3 flex items-center justify-between text-xs tracking-widest text-ash sm:hidden">
-          <span>~/sniff.sys</span>
-          <span>WOOFING</span>
+      <div class="term-body">
+        <!-- ticker -->
+        <div class="ticker">
+          <div class="ticker-track">
+            <span>>>> FEBU + WHITEWHALE ENERGY COMBINED >>> GOING LIVE ON PUMPFUN >>> DEX AT 16K >>> $FEBUWHALE >>> SOLANA >>> FEBU + WHITEWHALE ENERGY COMBINED >>> GOING LIVE ON PUMPFUN >>> DEX AT 16K >>> $FEBUWHALE >>> SOLANA >>></span>
+            <span>>>> FEBU + WHITEWHALE ENERGY COMBINED >>> GOING LIVE ON PUMPFUN >>> DEX AT 16K >>> $FEBUWHALE >>> SOLANA >>> FEBU + WHITEWHALE ENERGY COMBINED >>> GOING LIVE ON PUMPFUN >>> DEX AT 16K >>> $FEBUWHALE >>> SOLANA >>></span>
+          </div>
         </div>
-        <img
-          src="banner.png"
-          alt="Cash Dog banner — CASHDOG"
-          class="animate-bob banner-glow mx-auto w-full max-w-3xl select-none"
-          draggable="false"
-        />
-        <div class="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-rail pt-3 text-xs tracking-widest text-ash sm:text-sm">
-          <span class="text-coin">* LIVE</span>
-          <span>CHAIN: SOLANA</span>
-          <span>TICKER: $CASHDOG</span>
-        </div>
-      </div>
 
-      <div class="mt-10 text-center">
-        <!-- New dog ASCII (different from bull cow) -->
-        <pre class="ascii-art mx-auto mb-5 hidden overflow-x-auto text-[10px] sm:block sm:text-xs md:text-sm">
-      / \__
-     (    @\___
-     /         O
-    /   (_____/
-   /_____/   U   ···  WOOF  ···  $$$
+        <p class="prompt">
+          <span class="path">root@febuwhale</span>:<span style="color:var(--green-soft)">~</span>$ <span class="cmd">./boot --token FEBUWHALE</span><span class="cursor"></span>
+        </p>
+
+        <!-- big ascii title -->
+        <pre class="ascii" aria-hidden="true">
+ ╔══════════════════════════════════════════════════════════════╗
+ ║                                                              ║
+ ║   ███████╗███████╗██████╗ ██╗   ██╗██╗    ██╗██╗  ██╗        ║
+ ║   ██╔════╝██╔════╝██╔══██╗██║   ██║██║    ██║██║  ██║        ║
+ ║   █████╗  █████╗  ██████╔╝██║   ██║██║ █╗ ██║███████║        ║
+ ║   ██╔══╝  ██╔══╝  ██╔══██╗██║   ██║██║███╗██║██╔══██║        ║
+ ║   ██║     ███████╗██████╔╝╚██████╔╝╚███╔███╔╝██║  ██║        ║
+ ║   ╚═╝     ╚══════╝╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═╝        ║
+ ║              ██╗  ██╗ █████╗ ██╗     ███████╗                ║
+ ║              ██║  ██║██╔══██╗██║     ██╔════╝                ║
+ ║              ███████║███████║██║     █████╗                  ║
+ ║              ██╔══██║██╔══██║██║     ██╔══╝                  ║
+ ║              ██║  ██║██║  ██║███████╗███████╗                ║
+ ║              ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝                ║
+ ║                                                              ║
+ ║         [ $FEBUWHALE ]  ·  SOLANA  ·  PUMPFUN → DEX 16K      ║
+ ╚══════════════════════════════════════════════════════════════╝
         </pre>
-        <h1 class="font-display text-xl leading-relaxed tracking-wide text-coin text-glow sm:text-3xl sm:leading-relaxed">
-          CASH DOG
-        </h1>
-        <p class="mt-3 text-base tracking-[0.28em] text-ash sm:text-lg">
-          SYMBOL <span class="text-coin">$CASHDOG</span>
+
+        <!-- banner art -->
+        <div class="box" style="margin-top:1rem;">
+          <span class="box-title">[ BANNER.IMG ]</span>
+          <div class="box-inner">
+            <div class="hero-banner">
+              <img src="banner.png" alt="Febuwhale army banner" draggable="false" />
+            </div>
+            <div class="meta-row">
+              <span class="live">PUMPFUN</span>
+              <span>CHAIN: SOLANA</span>
+              <span>TICKER: $FEBUWHALE</span>
+              <span>TARGET: DEX @ 16K</span>
+            </div>
+          </div>
+        </div>
+
+        <h1>FEBUWHALE</h1>
+        <p class="symbol">SYMBOL <b>$FEBUWHALE</b></p>
+        <p class="tagline">
+          Febu + Whitewhale energy combined. Going live on PumpFun, DEX at 16K.
         </p>
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/90 sm:text-xl">
-          Cash Dog barks at every dip, sniffs out gains, and leads the meme pack straight to the moon.
-        </p>
+
+        <div class="pills">
+          <span class="pill">LAUNCH :: PUMPFUN</span>
+          <span class="pill amber">DEX :: 16K MC</span>
+          <span class="pill">CHAIN :: SOLANA</span>
+        </div>
 
         <!-- CA -->
-        <div class="mx-auto mt-8 max-w-2xl">
-          <div class="frame frame-tag rounded-none p-3 sm:p-4" data-tag="[ CONTRACT ]">
-            <div class="mb-2 text-left text-xs tracking-[0.22em] text-ash sm:text-sm">
-              PASTE THIS · ONLY TRADE THE REAL DOG
-            </div>
-            <div class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-              <code
-                id="ca-text"
-                class="flex-1 overflow-x-auto border border-rail bg-ink px-3 py-3 text-left text-sm text-coin sm:text-base"
-              >HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump</code>
-              <button
-                id="copy-ca"
-                type="button"
-                class="btn-dog btn-fill shrink-0 rounded-none px-5 py-3 text-sm font-bold"
-              >
-                COPY CA
-              </button>
-            </div>
-            <p class="mt-2 text-left text-xs tracking-widest text-ash">
-              // copy · paste into wallet / swap · bark
-            </p>
+        <div class="ca-block">
+          <div class="ca-head">
+            <span>// CONTRACT ADDRESS</span>
+            <span>ONLY TRADE THE REAL WHALE</span>
+          </div>
+          <div class="ca-body">
+            <code id="ca-text">TBA</code>
+            <button type="button" class="btn btn-solid" id="copy-ca">[ COPY CA ]</button>
           </div>
         </div>
 
-        <!-- CTAs -->
-        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-          <a
-            href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-dog btn-fill w-full max-w-xs rounded-none px-8 py-3.5 text-center text-base font-bold shadow-gold-hot sm:w-auto"
-          >
-            * BUY NOW
+        <div class="cta-row">
+          <a class="btn btn-solid" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer">
+            &gt; BUY ON PUMPFUN
           </a>
-          <a
-            href="https://dexscreener.com/solana/HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-dog btn-outline w-full max-w-xs rounded-none px-8 py-3.5 text-center text-base font-bold sm:w-auto"
-          >
-            ^ WATCH CHART
+          <a class="btn btn-ghost" href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer">
+            &gt; WATCH CHART
           </a>
         </div>
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="border-t border-rail bg-board/60 py-16 sm:py-20">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="mb-10 flex items-end justify-between gap-4">
-          <div>
-            <p class="text-xs tracking-[0.28em] text-ash sm:text-sm">01 // THE DOG</p>
-            <h2 class="mt-2 text-2xl font-bold tracking-[0.1em] text-coin text-glow sm:text-3xl">WHAT IS CASH DOG?</h2>
-            <p class="mt-3 max-w-xl text-base text-ash sm:text-lg">
-              Cash Dog barks at every dip, sniffs out gains, and leads the meme pack straight to the moon.
-              Good boy energy. Bad candle energy. Pure Solana chaos.
-            </p>
-          </div>
-          <pre class="paw hidden text-xs leading-tight sm:block">  (\_/)
-  ( •_•)
- / > $  </pre>
-        </div>
+        <div class="hr-ascii">════════════════════════════════════════════════════════════════════════</div>
 
-        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <article class="frame rounded-none bg-ink p-5">
-            <pre class="mb-3 text-sm leading-none text-coin/70">  /\_/\
- ( o.o )
-  > ^ &lt;
-  WOOF!</pre>
-            <h3 class="text-base font-bold tracking-widest text-coin">BARKS AT EVERY DIP</h3>
-            <p class="mt-3 text-base leading-relaxed text-ash">
-              Red candle? Cash Dog is already barking. Dips are dinner — the pack doesn’t flinch, it howls louder.
-            </p>
-          </article>
-          <article class="frame rounded-none bg-ink p-5">
-            <pre class="mb-3 text-sm leading-none text-coin/70">  sniff
-   ...$
-  $$$
- /___/</pre>
-            <h3 class="text-base font-bold tracking-widest text-coin">SNIFFS OUT GAINS</h3>
-            <p class="mt-3 text-base leading-relaxed text-ash">
-              Nose to the chart. Cash Dog sniffs out gains before the herd notices — follow the $ collar.
-            </p>
-          </article>
-          <article class="frame rounded-none bg-ink p-5">
-            <pre class="mb-3 text-sm leading-none text-coin/70">  /\/\
- /  o \
-/  pack\
-  ~~~~~</pre>
-            <h3 class="text-base font-bold tracking-widest text-coin">LEADS THE MEME PACK</h3>
-            <p class="mt-3 text-base leading-relaxed text-ash">
-              Alpha of the meme pack. Culture first, chaos second — Cash Dog runs point while others fetch.
-            </p>
-          </article>
-          <article class="frame rounded-none bg-ink p-5">
-            <pre class="mb-3 text-sm leading-none text-coin/70">   *
-  /|\
- / | \
-  🌙
- MOON</pre>
-            <h3 class="text-base font-bold tracking-widest text-coin">STRAIGHT TO THE MOON</h3>
-            <p class="mt-3 text-base leading-relaxed text-ash">
-              No detours. No reverse. The pack goes one direction — straight to the moon with $CASHDOG.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW TO BUY -->
-    <section id="howto" class="border-t border-rail py-16 sm:py-20">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="mb-10 text-center">
-          <p class="text-xs tracking-[0.28em] text-ash sm:text-sm">02 // JOIN THE PACK</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-[0.1em] text-coin text-glow sm:text-3xl">HOW TO BUY $CASHDOG</h2>
-          <p class="mx-auto mt-3 max-w-lg text-base text-ash sm:text-lg">
-            Four steps. Get your bag before the next bark.
+        <!-- ABOUT -->
+        <section class="sec" id="about">
+          <p class="sec-label">01 // MANIFEST</p>
+          <h2>&gt; WHAT IS FEBUWHALE?</h2>
+          <p class="lead">
+            Febu + Whitewhale energy combined. Two legends. One ticker.
+            Live on PumpFun — graduate to DEX when we hit 16K.
           </p>
-        </div>
+        </section>
 
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <article class="frame relative rounded-none bg-board p-5">
-            <div class="mb-4 flex items-center justify-between">
-              <span class="text-4xl font-bold text-coin/20">01</span>
-              <span class="text-xs tracking-widest text-ash">WALLET</span>
-            </div>
-            <h3 class="text-base font-bold tracking-widest text-coin">GET A WALLET</h3>
-            <p class="mt-3 text-base leading-relaxed text-ash">
-              Install <span class="text-cream">Phantom</span> or <span class="text-cream">Solflare</span>. Create or import. Guard the seed like a bone.
-            </p>
-            <pre class="mt-4 text-xs leading-none text-coin/40">[####······]</pre>
+        <div class="grid cols-4">
+          <article class="card">
+            <pre>  FEBU
+   +
+ WHITE
+ WHALE</pre>
+            <h3>COMBINED ENERGY</h3>
+            <p>Febu chaos meets Whitewhale size. One culture, one army, one mission on Solana.</p>
           </article>
-
-          <article class="frame relative rounded-none bg-board p-5">
-            <div class="mb-4 flex items-center justify-between">
-              <span class="text-4xl font-bold text-coin/20">02</span>
-              <span class="text-xs tracking-widest text-ash">FUEL</span>
-            </div>
-            <h3 class="text-base font-bold tracking-widest text-coin">ADD SOL</h3>
-            <p class="mt-3 text-base leading-relaxed text-ash">
-              Buy SOL, send it to your wallet. Leave a little for fees — the dog needs gas to chase the moon.
-            </p>
-            <pre class="mt-4 text-xs leading-none text-coin/40">[########··]</pre>
+          <article class="card">
+            <pre>  ┌────┐
+  │PUMP│
+  │.FUN│
+  └────┘
+  LIVE*</pre>
+            <h3>LIVE ON PUMPFUN</h3>
+            <p>Bond-curve heat from candle one. Early pod, full swarm, no waiting room.</p>
           </article>
-
-          <article class="frame relative rounded-none bg-board p-5">
-            <div class="mb-4 flex items-center justify-between">
-              <span class="text-4xl font-bold text-coin/20">03</span>
-              <span class="text-xs tracking-widest text-ash">CA</span>
-            </div>
-            <h3 class="text-base font-bold tracking-widest text-coin">COPY CA</h3>
-            <p class="mt-3 text-base leading-relaxed text-ash">
-              Hit <span class="text-cream">COPY CA</span>. Paste the real contract — only trade verified $CASHDOG.
-            </p>
-            <pre class="mt-4 text-xs leading-none text-coin/40">[##########]</pre>
+          <article class="card">
+            <pre>  16K
+  MC ──►
+  DEX
+  OPEN</pre>
+            <h3>DEX AT 16K</h3>
+            <p>Hit 16K market cap — graduate to open water. Liquidity deepens. Chart unlocks.</p>
           </article>
-
-          <article class="frame relative rounded-none bg-board p-5">
-            <div class="mb-4 flex items-center justify-between">
-              <span class="text-4xl font-bold text-coin/20">04</span>
-              <span class="text-xs tracking-widest text-ash">SWAP</span>
-            </div>
-            <h3 class="text-base font-bold tracking-widest text-coin">SWAP → WOOF</h3>
-            <p class="mt-3 text-base leading-relaxed text-ash">
-              Open <span class="text-cream">BUY NOW</span>, connect, swap SOL for $CASHDOG. Confirm. Lead the pack.
-            </p>
-            <pre class="mt-4 text-xs leading-none text-coin/40">[##########] *</pre>
+          <article class="card">
+            <pre>  ╱||╲
+ ╱ || ╲
+  SOL
+  ~~~</pre>
+            <h3>SOLANA NATIVE</h3>
+            <p>Built for Solana speed. Fast swaps, loud pod, pure $FEBUWHALE signal.</p>
           </article>
         </div>
 
-        <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-dog btn-fill w-full max-w-xs rounded-none px-8 py-3.5 text-center text-base font-bold sm:w-auto"
-          >
-            * BUY NOW
+        <div class="hr-ascii">════════════════════════════════════════════════════════════════════════</div>
+
+        <!-- HOW TO BUY -->
+        <section class="sec" id="buy">
+          <p class="sec-label">02 // PROTOCOL</p>
+          <h2>&gt; HOW TO BUY $FEBUWHALE</h2>
+          <p class="lead">Four commands. Surface with the pod before DEX at 16K.</p>
+        </section>
+
+        <div class="grid cols-4">
+          <article class="card">
+            <span class="step-num">01</span>
+            <pre>$ wallet init</pre>
+            <h3>GET A WALLET</h3>
+            <p>Install Phantom or Solflare. Create or import. Guard the seed like deep treasure.</p>
+          </article>
+          <article class="card">
+            <span class="step-num">02</span>
+            <pre>$ sol deposit</pre>
+            <h3>ADD SOL</h3>
+            <p>Buy SOL, send it to your wallet. Leave gas for fees — the whale needs fuel to breach.</p>
+          </article>
+          <article class="card">
+            <span class="step-num">03</span>
+            <pre>$ ca copy</pre>
+            <h3>COPY CA</h3>
+            <p>Hit COPY CA. Paste the real contract — only trade verified $FEBUWHALE.</p>
+          </article>
+          <article class="card">
+            <span class="step-num">04</span>
+            <pre>$ swap --pump</pre>
+            <h3>SWAP → SURF</h3>
+            <p>Open BUY ON PUMPFUN, connect, swap SOL for $FEBUWHALE. Confirm. Ride to 16K.</p>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-solid" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer">
+            &gt; BUY ON PUMPFUN
           </a>
-          <button
-            type="button"
-            onclick="document.getElementById('copy-ca').click()"
-            class="btn-dog btn-outline w-full max-w-xs rounded-none px-8 py-3.5 text-center text-base font-bold sm:w-auto"
-          >
-            ⎘ COPY CA
+          <button type="button" class="btn btn-ghost" onclick="document.getElementById('copy-ca').click()">
+            &gt; COPY CA
           </button>
         </div>
-      </div>
-    </section>
 
-    <!-- CHART -->
-    <section id="chart" class="border-t border-rail bg-board/60 py-16 sm:py-20">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <p class="text-xs tracking-[0.28em] text-ash sm:text-sm">03 // PRICE SNIFF</p>
-            <h2 class="mt-2 text-2xl font-bold tracking-[0.1em] text-coin text-glow sm:text-3xl">WATCH THE CHART</h2>
-            <p class="mt-2 max-w-md text-base text-ash sm:text-lg">
-              Live $CASHDOG action. Dips get barked at. Gains get sniffed. Moon stays the mission.
-            </p>
-          </div>
-          <a
-            href="https://dexscreener.com/solana/HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-dog btn-outline rounded-none px-4 py-2 text-sm font-bold"
-          >
+        <div class="hr-ascii">════════════════════════════════════════════════════════════════════════</div>
+
+        <!-- CHART -->
+        <section class="sec" id="chart">
+          <p class="sec-label">03 // DEPTH SCAN</p>
+          <h2>&gt; WATCH THE CHART</h2>
+          <p class="lead">Live $FEBUWHALE action. PumpFun heat now. DEX opens at 16K.</p>
+        </section>
+
+        <div style="display:flex;justify-content:flex-end;margin-bottom:0.65rem;">
+          <a class="btn btn-ghost" href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" style="font-size:0.72rem;padding:0.45rem 0.8rem;">
             OPEN FULL CHART ^
           </a>
         </div>
 
-        <div class="dex-shell overflow-hidden shadow-gold">
-          <div class="flex items-center justify-between border-b border-rail px-3 py-2 text-xs tracking-widest text-ash sm:text-sm">
-            <span class="text-coin/75">[ dexscreener · $CASHDOG ]</span>
-            <span class="flex items-center gap-2">
-              <span class="inline-block h-2 w-2 animate-pulse rounded-full bg-coin"></span>
-              EMBED
-            </span>
+        <div class="chart-shell">
+          <div class="chart-bar">
+            <span class="ok">[ dexscreener · $FEBUWHALE ]</span>
+            <span>● EMBED</span>
           </div>
-          <div class="relative w-full" style="padding-top: 62.5%; min-height: 420px;">
+          <div class="chart-frame">
             <iframe
-              title="CASHDOG Dexscreener chart"
-              src="https://dexscreener.com/solana/HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"
-              class="absolute inset-0 h-full w-full border-0"
+              title="FEBUWHALE Dexscreener chart"
+              src="https://dexscreener.com/solana/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"
               allow="clipboard-write"
               loading="lazy"
             ></iframe>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- LINKS -->
-    <section id="links" class="border-t border-rail py-16 sm:py-20">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="mb-10 text-center">
-          <p class="text-xs tracking-[0.28em] text-ash sm:text-sm">04 // THE PACK</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-[0.1em] text-coin text-glow sm:text-3xl">JOIN THE PACK</h2>
-          <p class="mx-auto mt-3 max-w-md text-base text-ash sm:text-lg">
-            Dip barkers, gain sniffers, moon runners — run with Cash Dog.
-          </p>
-        </div>
+        <div class="hr-ascii">════════════════════════════════════════════════════════════════════════</div>
 
-        <div class="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
-          <a
-            href="https://t.me/CashDogsolana"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="frame group flex items-center gap-4 rounded-none bg-board p-5"
-          >
-            <img src="tg.png" alt="Telegram" class="h-14 w-14 shrink-0 transition group-hover:scale-105" />
+        <!-- POD -->
+        <section class="sec" id="pod">
+          <p class="sec-label">04 // NETWORK</p>
+          <h2>&gt; JOIN THE POD</h2>
+          <p class="lead">Febu energy. Whitewhale size. Swim with Febuwhale.</p>
+        </section>
+
+        <div class="grid cols-2">
+          <a class="link-card" href="https://t.me/febuwhale" target="_blank" rel="noopener noreferrer">
+            <img src="tg.png" alt="Telegram" />
             <div>
-              <div class="text-xs tracking-[0.28em] text-ash">TELEGRAM</div>
-              <div class="mt-1 text-base font-bold tracking-widest text-coin">t.me/CashDogsolana</div>
-              <div class="mt-1 text-sm text-ash">Where the pack howls →</div>
+              <div class="lbl">TELEGRAM</div>
+              <div class="val">t.me/febuwhale</div>
+              <div class="hint">where the pod gathers →</div>
             </div>
           </a>
-          <a
-            href="https://x.com/CashDogsolanaX"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="frame group flex items-center gap-4 rounded-none bg-board p-5"
-          >
-            <img src="x.png" alt="X" class="social-icon h-12 w-12 shrink-0" />
+          <a class="link-card" href="https://x.com/febuwhale" target="_blank" rel="noopener noreferrer">
+            <img src="x.png" alt="X" class="x-ico" />
             <div>
-              <div class="text-xs tracking-[0.28em] text-ash">X / TWITTER</div>
-              <div class="mt-1 text-base font-bold tracking-widest text-coin">@CashDogsolanaX</div>
-              <div class="mt-1 text-sm text-ash">Barks · charts · updates →</div>
+              <div class="lbl">X / TWITTER</div>
+              <div class="val">@febuwhale</div>
+              <div class="hint">charts · updates · waves →</div>
             </div>
           </a>
         </div>
 
-        <div class="mx-auto mt-12 max-w-2xl text-center">
-          <pre class="ascii-art inline-block text-left text-xs leading-tight sm:text-sm">
-+==============================================+
-|  CASH DOG // $CASHDOG                        |
-|  barks at every dip · sniffs out gains       |
-|  leads the meme pack · straight to the moon  |
-+==============================================+
-          </pre>
-        </div>
-      </div>
-    </section>
-  </main>
+        <pre class="ascii" style="margin-top:1.5rem;text-align:left;">
+┌──────────────────────────────────────────────┐
+│  FEBUWHALE // $FEBUWHALE                     │
+│  Febu + Whitewhale energy combined           │
+│  Going live on PumpFun · DEX at 16K          │
+│                                              │
+│  $ ./status                                  │
+│  > pumpfun: LIVE                             │
+│  > dex: PENDING @ 16K MC                     │
+│  > chain: SOLANA                             │
+└──────────────────────────────────────────────┘
+        </pre>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-rail bg-ink py-10">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6">
-      <div class="flex items-center gap-3">
-        <img src="logo.png" alt="Cash Dog" class="h-10 w-10 banner-glow" />
+        <p class="prompt" style="margin-top:1rem;">
+          <span class="path">root@febuwhale</span>:<span style="color:var(--green-soft)">~</span>$ <span class="cmd">echo "NFA · DYOR · RIDE THE WAVE"</span><span class="cursor"></span>
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="foot-brand">
+        <img src="logo.png" alt="Febuwhale" />
         <div>
-          <div class="text-sm font-bold tracking-widest text-coin">CASH DOG · $CASHDOG</div>
-          <div class="text-xs tracking-widest text-ash">WOOF TO THE MOON · SOLANA</div>
+          <div class="foot-name">FEBUWHALE · $FEBUWHALE</div>
+          <div>FEBU + WHITEWHALE · SOLANA</div>
         </div>
       </div>
-
-      <div class="flex items-center gap-4">
-        <a href="https://t.me/CashDogsolana" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-          <img src="tg.png" alt="Telegram" class="h-8 w-8 transition hover:scale-110" />
+      <div class="foot-links">
+        <a href="https://t.me/febuwhale" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <img src="tg.png" alt="TG" class="tg" />
         </a>
-        <a href="https://x.com/CashDogsolanaX" target="_blank" rel="noopener noreferrer" aria-label="X">
-          <img src="x.png" alt="X" class="social-icon h-7 w-7" />
+        <a href="https://x.com/febuwhale" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="x.png" alt="X" />
         </a>
-        <a
-          href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-xs tracking-widest text-ash hover:text-coin"
-        >BUY</a>
-        <a
-          href="https://dexscreener.com/solana/HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-xs tracking-widest text-ash hover:text-coin"
-        >CHART</a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer">BUY</a>
+        <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer">CHART</a>
       </div>
-
-      <p class="text-center text-xs tracking-widest text-ash sm:text-right">
-        © 2026 CASH DOG · NFA · DYOR<br />
-        <span class="text-coin/45">// bark · sniff · moon</span>
-      </p>
-    </div>
-  </footer>
-
-  <!-- Toast -->
-  <div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-[60] hidden -translate-x-1/2">
-    <div class="copy-toast border-2 border-coin bg-coin px-4 py-2 text-sm font-bold tracking-widest text-ink shadow-gold-hot">
-      CA COPIED *
-    </div>
+      <div style="text-align:right;">
+        © 2026 FEBUWHALE · NFA · DYOR<br />
+        <span style="color:var(--green-dim)">// febu · whitewhale · 16k</span>
+      </div>
+    </footer>
   </div>
 
+  <div id="toast">CA COPIED *</div>
+
   <script>
-    const CA = 'HyrcSV3oQkS763vWNdqP5vhDcfvnesCFqqe37nXpump';
+    const CA = 'TBA';
     const caText = document.getElementById('ca-text');
     const copyBtn = document.getElementById('copy-ca');
     const toast = document.getElementById('toast');
@@ -700,16 +1011,12 @@
         document.execCommand('copy');
         sel.removeAllRanges();
       }
-      toast.classList.remove('hidden');
-      const box = toast.firstElementChild;
-      box.classList.remove('copy-toast');
-      void box.offsetWidth;
-      box.classList.add('copy-toast');
+      toast.classList.add('show');
       clearTimeout(window.__toastTimer);
-      window.__toastTimer = setTimeout(() => toast.classList.add('hidden'), 1800);
+      window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
       const original = copyBtn.textContent;
-      copyBtn.textContent = 'COPIED *';
-      setTimeout(() => { copyBtn.textContent = original; }, 1600);
+      copyBtn.textContent = '[ COPIED * ]';
+      setTimeout(() => { copyBtn.textContent = original; }, 1500);
     }
 
     copyBtn.addEventListener('click', copyCA);
